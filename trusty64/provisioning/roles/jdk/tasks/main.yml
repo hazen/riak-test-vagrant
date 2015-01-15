@@ -1,0 +1,24 @@
+---
+- name: Prepare to install Oracle JDK from apt
+  sudo: true
+  apt: name={{ item }} state=present
+  with_items:
+    - python-software-properties
+    - python-apt
+    - debconf
+    - debconf-utils
+
+- name: Add the Java PPA repository
+  sudo: true
+  apt_repository: repo='ppa:webupd8team/java' state=present update_cache=yes
+
+- name: Configure Oracle license agreement
+  sudo: true
+  debconf: name='oracle-java7-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+
+- name: Finally actually install the damned JDK
+  sudo: true
+  apt: name='oracle-java7-installer' state=present
+
+- name: Update vagrant environment
+  script: update_environment.sh
