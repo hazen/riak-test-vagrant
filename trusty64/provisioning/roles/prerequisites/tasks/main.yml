@@ -28,11 +28,11 @@
 - name: Update the open file limit
   script: update_file_limit.sh
 
+- name: Update shell environment
+  script: setup_environment.sh
+
 - name: Install kerl
   script: install_kerl.sh
 
 - name: Install erln8
   script: install_erln8.sh
-
-- name: Update shell environment
-  script: setup_environmnet.sh

@@ -1,14 +1,14 @@
 #!/bin/bash
 PROFILE=${HOME}/.bash_profile
 BASHRC=${HOME}/.bashrc
-if [ ! -f ${PROFILE} || -z "`grep .bashrc ${PROFILE}`"]; then
+if [ ! -f ${PROFILE} ] || [ -z "`grep .bashrc ${PROFILE}`"]; then
 cat <<EOF >> ${PROFILE}
 if [ -f ${HOME}/.bashrc ]; then
     source ${HOME}/.bashrc
 fi
 EOF
 fi
-if [ ! -f ${BASHRC} || -z "`grep EDITOR ${BASHRC}" ]; then
+if [ ! -f ${BASHRC} ] || [ -z "`grep EDITOR ${BASHRC}`" ]; then
    cat <<EOF >> ${BASHRC}
 ## Uncomment to use the Enterprise Edition of Riak
 # export RT_USE_EE=Y
