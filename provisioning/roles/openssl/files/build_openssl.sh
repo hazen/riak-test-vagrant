@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir src
 cd src
-export OPENSSL=openssl-1.0.1k
+export OPENSSL=openssl-1.0.2
 wget https://www.openssl.org/source/${OPENSSL}.tar.gz
 tar fx ${OPENSSL}.tar.gz
 cd ${OPENSSL}

@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "chef/ubuntu-14.04"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -33,7 +33,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
-  config.vm.network "public_network", bridge: 'en0: Ethernet 1', :mac => "0800275519ea"
+  # config.vm.network "public_network", bridge: 'en0: Ethernet 1', :mac => "0800275519ea"
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
@@ -57,18 +57,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Host machine name
   config.vm.hostname = 'riak-test-vagrant'
 
-  config.vm.provider "virtualbox" do |vb|
+  config.vm.provider "vmware-fusion" do |vm|
       # Display the VirtualBox GUI when booting the machine
       #vb.gui = true
   
       # Customize the numbers of cores on the VM:
-      vb.cpus = "4"
+      vm.cpus = "4"
 
       # Customize the amount of memory on the VM:
-      vb.memory = "4096"
+      vm.memory = "4096"
 
       # NAT
-      #vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      vm.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      vm.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
 
 end
