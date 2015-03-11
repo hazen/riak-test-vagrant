@@ -57,21 +57,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Host machine name
   config.vm.hostname = 'vmware-vagrant'
 
-  config.vm.provider "vmware-fusion" do |vm|
+  config.vm.provider "vmware_fusion" do |v|
       # Display the VirtualBox GUI when booting the machine
       #vb.gui = true
-  
+
       # Customize the numbers of cores on the VM:
-      vm.vmx["numvcpus"] = "2"
+      v.vmx["numvcpus"] = "4"
       #vb.cpus = "4"
 
       # Customize the amount of memory on the VM:
-      vm.vmx["memsize"] = "1024"
+      v.vmx["memsize"] = "4096"
       #vb.memory = "4096"
 
       # NAT
-      vm.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      vm.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
 
 end
