@@ -6,12 +6,12 @@ ERLN8=/usr/local/erln8/bin/erln8
 export KERL_CONFIGURE_OPTIONS="--enable-smp-support --without-odbc --with-ssl=${OPENSSL} --enable-hipe --enable-m64-build"
 export CFLAGS="-g -O2"
 export LDFLAGS="-g"
-for release in R15B01-basho R16B02-basho8; do
+for release in R15B01-basho R16B02-basho7; do
     if [ -z "`${KERL} list builds | grep ${release}`" ]; then
          if [ "${release}" == "R15B01-basho" ]; then
              GIT_LABEL="basho_OTP_R15B01p"
          else
-             GIT_LABEL="r16"
+             GIT_LABEL="OTP_R16B02_basho7"
          fi
          ${KERL} build git git://github.com/basho/otp.git ${GIT_LABEL} ${release}
 #        KERL_CONFIGURE_OPTIONS="--enable-vm-probes --with-dynamic-trace=dtrace --enable-smp-support --without-odbc --with-ssl=/usr/local/opt/openssl --with-javac=/usr/lib/jvm/java-7-oracle/bin --enable-hipe" ${KERL}/${KERL} build ${release} ${release}
@@ -23,7 +23,7 @@ done
 
 ## Add riak_test goodies to the test environment
 BASHRC=${HOME}/.bashrc
-DEFAULT=R16B02-basho8
+DEFAULT=R16B02-basho7
 if [ -z "`grep CURRENT_OTP ${BASHRC}`" ]; then
     cat <<EOF >> ${BASHRC}
 # Location of Erlang OTP installations
