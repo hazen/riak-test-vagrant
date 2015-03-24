@@ -15,6 +15,7 @@ if [ ! -f ${BASHRC} ] || [ -z "`grep EDITOR ${BASHRC}`" ]; then
 ## Modify the location of the versions of Riak
 # export RT_DEST_DIR
 export EDITOR=vim
+alias h=history
 EOF
 fi
 
