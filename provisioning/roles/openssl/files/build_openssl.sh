@@ -24,6 +24,8 @@ if [ -z "$EXISTS" ]; then
 # Add OpenSSL to vagrant user environment
 export PATH=/usr/local/opt/openssl/bin:\${PATH}
 export CPATH=/usr/local/otp/openssl/include:\${CPATH}
+export C_INCLUDE_PATH=/usr/local/otp/openssl/include:\${C_INCLUDE_PATH}
 export LIBRARY_PATH=/usr/local/opt/openssl/lib:\${LIBRARY_PATH}
+export LD_LIBRARY_PATH=/usr/local/opt/openssl/lib:\${LD_LIBRARY_PATH}
 EOF
 fi
