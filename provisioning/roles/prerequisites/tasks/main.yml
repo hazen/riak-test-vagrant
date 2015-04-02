@@ -13,6 +13,7 @@
     - fop
     - git
     - libbz2-dev
+    - libffi-dev
     - libglib2.0-dev
     - libncurses-dev
     - libpam0g-dev
