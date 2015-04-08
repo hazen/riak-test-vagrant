@@ -11,7 +11,7 @@ for release in R15B01-basho R16B02-basho8; do
          if [ "${release}" == "R15B01-basho" ]; then
              GIT_LABEL="basho_OTP_R15B01p"
          else
-             GIT_LABEL="r16"
+             GIT_LABEL="OTP_R16B02_basho8"
          fi
          ${KERL} build git git://github.com/basho/otp.git ${GIT_LABEL} ${release}
 #        KERL_CONFIGURE_OPTIONS="--enable-vm-probes --with-dynamic-trace=dtrace --enable-smp-support --without-odbc --with-ssl=/usr/local/opt/openssl --with-javac=/usr/lib/jvm/java-7-oracle/bin --enable-hipe" ${KERL}/${KERL} build ${release} ${release}
