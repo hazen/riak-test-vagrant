@@ -1,7 +1,8 @@
 ---
 - hosts: all
   roles:
-    - prerequisites
+    - setup
     - jdk
+    - prerequisites
     - openssl
     - erlang

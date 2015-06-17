@@ -1,0 +1,38 @@
+---
+- name: Update the apt-get repository
+  sudo: true
+  apt: update_cache=yes upgrade=dist
+
+- name: install utilities and dependencies
+  sudo: true
+  apt: name={{ item }} state=present
+  with_items:
+    - autoconf
+    - build-essential
+    - curl
+    - fop
+    - git
+    - libbz2-dev
+    - libffi-dev
+    - libglib2.0-dev
+    - libncurses-dev
+    - libpam0g-dev
+    - libreadline-dev
+    - maven
+    - pkg-config
+    - vim
+    - wget
+    - xsltproc
+    - zlib1g-dev
+
+- name: Update the open file limit
+  script: update_file_limit.sh ubuntu
+
+- name: Update shell environment
+  script: setup_environment.sh
+
+- name: Install kerl
+  script: install_kerl.sh
+
+- name: Install erln8
+  script: install_erln8.sh
