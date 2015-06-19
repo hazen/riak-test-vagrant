@@ -1,0 +1,8 @@
+---
+- name: Create /usr/local/src
+  sudo: true
+  shell: mkdir -p /usr/local/src
+
+- name: Publicize /usr/local/src
+  sudo: true
+  shell: chmod 777 /usr/local/src
