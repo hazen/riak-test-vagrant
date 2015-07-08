@@ -4,7 +4,7 @@ if [ "$1" == "rhel" ]; then
 else
   LIMIT_FILE=/etc/security/limits.conf
 fi
-EXISTS=`grep nofile ${LIMIT_FILE}`
+EXISTS=`grep "nofile 65536" ${LIMIT_FILE}`
 if [ -z "$EXISTS" ]; then
     cat <<EOF | sudo tee -a ${LIMIT_FILE}
 * soft nofile 65536
