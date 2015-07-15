@@ -1,7 +1,7 @@
 ---
 - name: Build Ubuntu Version
   include: ubuntu1404.yml
-  when: ansible_distribution == 'Ubuntu' and ansible_distribution_release == 'trusty'
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Build CentOS Version
   include: centos65.yml
