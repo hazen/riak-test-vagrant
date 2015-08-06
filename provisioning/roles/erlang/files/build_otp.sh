@@ -6,6 +6,7 @@ ERLN8=/usr/local/erln8/bin/erln8
 export KERL_CONFIGURE_OPTIONS="--enable-smp-support --without-odbc --with-ssl=${OPENSSL} --disable-hipe --enable-m64-build"
 export CFLAGS="-g -O2"
 export LDFLAGS="-g"
+export MAKE="make -j8"
 if [ -f /etc/centos-release ]; then
     export CFLAGS="-g -O2 -DOPENSSL_NO_EC=1"
     export KERL_CONFIGURE_OPTIONS="--enable-smp-support --without-odbc --disable-hipe --enable-m64-build"
