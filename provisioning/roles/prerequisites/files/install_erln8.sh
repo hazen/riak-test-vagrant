@@ -1,10 +1,7 @@
 #!/bin/bash
 ERLN8=/usr/local/erln8
-if [ ! -d ~/src ]; then
-    mkdir ~/src
-fi
-cd ~/src
-if [ ! -d ~/src/erln8 ]; then
+cd /usr/local/src
+if [ ! -d /usr/local/src/erln8 ]; then
     git clone https://github.com/metadave/erln8
     cd erln8
     make

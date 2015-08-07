@@ -1,30 +1,8 @@
 ---
-- name: Prepare to install Oracle JDK from apt
-  sudo: true
-  apt: name={{ item }} state=present
-  with_items:
-    - python-software-properties
-    - python-apt
-    - debconf
-    - debconf-utils
+- name: Build Ubuntu Version
+  include: ubuntu1404.yml
+  when: ansible_distribution == 'Ubuntu'
 
-- name: Add the Java PPA repository
-  sudo: true
-  apt_repository: repo='ppa:webupd8team/java' state=present update_cache=yes
-
-- name: Configure Oracle license agreement
-  sudo: true
-  debconf: name='oracle-java7-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
-
-- name: Finally actually install the damned JDK
-  sudo: true
-  apt: name='oracle-java7-installer' state=present
-
-# For RHEL:
-# wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u75-b13/jdk-7u75-linux-i586.rpm
-- name: Download RPM for RHEL
-  uri: url="http://download.oracle.com/otn-pub/java/jdk/7u75-b13/jdk-7u75-linux-i586.rpm" method=GET HEADER_Cookie="oraclelicense=accept-securebackup-cookie" dest=
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
-
-- name: Update vagrant environment
-  script: update_environment.sh
+- name: Build CentOS Version
+  include: centos65.yml
+  when: ansible_distribution == 'CentOS' and ansible_distribution_version >= '6.5'

@@ -3,9 +3,14 @@ OPENSSL=/usr/local/opt/openssl
 KERL=/usr/local/kerl/kerl
 INSTALLDIR=${HOME}/erlang
 ERLN8=/usr/local/erln8/bin/erln8
-export KERL_CONFIGURE_OPTIONS="--enable-smp-support --without-odbc --with-ssl=${OPENSSL} --enable-hipe --enable-m64-build"
+export KERL_CONFIGURE_OPTIONS="--enable-smp-support --without-odbc --with-ssl=${OPENSSL} --disable-hipe --enable-m64-build"
 export CFLAGS="-g -O2"
 export LDFLAGS="-g"
+export MAKE="make -j8"
+if [ -f /etc/centos-release ]; then
+    export CFLAGS="-g -O2 -DOPENSSL_NO_EC=1"
+    export KERL_CONFIGURE_OPTIONS="--enable-smp-support --without-odbc --disable-hipe --enable-m64-build"
+fi
 for release in R15B01-basho R16B02-basho8; do
     if [ -z "`${KERL} list builds | grep ${release}`" ]; then
          if [ "${release}" == "R15B01-basho" ]; then

@@ -1,0 +1,40 @@
+---
+- name: Update the yum repository
+  sudo: true
+  shell: yum -y update
+
+- name: Set up Maven
+  sudo: true
+  get_url: url=http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo dest=/etc/yum.repos.d/epel-apache-maven.repo
+
+- name: install utilities and dependencies
+  sudo: true
+  yum: name={{ item }} state=present
+  with_items:
+    - apache-maven
+    - autoconf
+    - automake
+    - bzip2-devel
+    - fop
+    - gcc-c++
+    - git
+    - libffi-devel
+    - libtool
+    - libxslt-devel
+    - man
+    - ncurses-devel
+    - openssl-devel
+    - pam-devel
+    - readline-devel
+    - vim-enhanced
+    - wget
+    - zlib-devel
+
+- name: Update the open file limit
+  script: update_file_limit.sh rhel
+
+- name: Update shell environment
+  script: setup_environment.sh
+
+- name: Install kerl
+  script: install_kerl.sh

@@ -1,0 +1,10 @@
+---
+- name: Download RPM for RHEL
+  shell: "wget --no-check-certificate --no-cookies --header 'Cookie: oraclelicense=accept-securebackup-cookie' http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.rpm -O /usr/local/src/jdk-7u79-linux-x64.rpm"
+
+- name: Install Java RPM from a local file
+  sudo: yes
+  yum: name=/usr/local/src/jdk-7u79-linux-x64.rpm state=present
+
+- name: Update vagrant environment
+  script: update_environment.sh rhel

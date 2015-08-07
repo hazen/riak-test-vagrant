@@ -1,19 +1,19 @@
 #!/bin/bash
-mkdir src
-cd src
-export OPENSSL=openssl-1.0.2a
+cd /usr/local/src
+export OPENSSL=openssl-1.0.2-latest
 wget https://www.openssl.org/source/${OPENSSL}.tar.gz
 tar fx ${OPENSSL}.tar.gz
-cd ${OPENSSL}
+cd openssl*
 export CFLAGS=-fPIC
-./config shared -no-ssl2 --openssldir=/usr/local/${OPENSSL}
+./config shared -no-ssl2 --openssldir=/usr/local/openssl
 make depend
 make
 make test
 sudo make install 2>&1 > install.log
 sudo mkdir -p /usr/local/opt
 cd /usr/local/opt
-sudo ln -s /usr/local/${OPENSSL} openssl
+sudo rm -f /usr/local/opt/openssl
+sudo ln -s /usr/local/openssl openssl
 
 # vagrant user environment
 BASHRC=${HOME}/.bashrc
