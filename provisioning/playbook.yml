@@ -4,5 +4,4 @@
     - setup
     - jdk
     - prerequisites
-    - openssl
     - erlang
