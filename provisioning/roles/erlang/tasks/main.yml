@@ -1,3 +1,3 @@
 ---
-- name: Build Erlang OTP R15B01-basho R16B02-basho8 with kerl
+- name: Build Erlang OTP R15B01-basho R16B02-basho9 with kerl
   script: build_otp.sh
