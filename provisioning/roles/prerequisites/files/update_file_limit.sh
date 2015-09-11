@@ -7,6 +7,7 @@ fi
 EXISTS=`grep "nofile 65536" ${LIMIT_FILE}`
 if [ -z "$EXISTS" ]; then
     cat <<EOF | sudo tee -a ${LIMIT_FILE}
+* soft nproc  10240
 * soft nofile 65536
 * hard nofile 65536
 EOF

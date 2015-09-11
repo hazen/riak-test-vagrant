@@ -26,6 +26,7 @@
     - openssl-devel
     - pam-devel
     - readline-devel
+    - sqlite-devel
     - vim-enhanced
     - wget
     - zlib-devel
