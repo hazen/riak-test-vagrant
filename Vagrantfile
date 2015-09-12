@@ -56,9 +56,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Host machine name
-  config.vm.hostname = 'vmware-vagrant'
+  config.vm.hostname = 'vagrant'
 
   config.vm.provider "vmware_fusion" do |v|
+      v.vmx['displayname'] = 'vagrant'
       # Display the VirtualBox GUI when booting the machine
       #vb.gui = true
 

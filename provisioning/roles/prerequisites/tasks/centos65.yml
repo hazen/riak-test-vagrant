@@ -25,6 +25,7 @@
     - ncurses-devel
     - openssl-devel
     - pam-devel
+    - patch
     - readline-devel
     - sqlite-devel
     - vim-enhanced
