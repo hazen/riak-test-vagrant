@@ -22,9 +22,14 @@ fi
 ## Update the color setting for the Mac
 sed -i.bak "s/xterm-color/xterm-256color/g" ${BASHRC}
 ## Add Git config to the prompt
+if [ ! -f ${HOME}/.git-prompt.sh ]; then
+    curl -o ~/.git-prompt.sh \
+    https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+fi
 if [ -z "`grep git_ps1 ${BASHRC}`" ]; then
     cat <<EOF >> ${BASHRC}
-if [ "$color_prompt" = yes ]; then
+. ~/.git-prompt.sh
+if [ "\$color_prompt" = yes ]; then
     PS1='\[\033[00;33;33m\]\w\[\033[00m\]:\[\033[00;32m\]$(__git_ps1 "%s")\[\033[00m\]\n${debian_chroot:+($debian_chroot)}\[\033[0;31m\]\u@\h\[\033[00m\] \$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w:$(__git_ps1 "%s")\$ '
