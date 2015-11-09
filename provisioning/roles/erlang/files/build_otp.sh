@@ -11,10 +11,12 @@ if [ -f /etc/centos-release ]; then
     export CFLAGS="-g -O2 -DOPENSSL_NO_EC=1"
     export KERL_CONFIGURE_OPTIONS="--enable-smp-support --without-odbc --disable-hipe --enable-m64-build"
 fi
-for release in R15B01-basho R16B02-basho9; do
+for release in R15B01-basho R16B02-basho9 18.1.3; do
     if [ -z "`${KERL} list builds | grep ${release}`" ]; then
          if [ "${release}" == "R15B01-basho" ]; then
              GIT_LABEL="basho_OTP_R15B01p"
+         elif [ "${release}" == "18.1.3" ]; then
+             GIT_LABEL="OTP-18.1.3"
          else
              GIT_LABEL="OTP_R16B02_basho9"
          fi
