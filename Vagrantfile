@@ -56,7 +56,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Host machine name
-  config.vm.hostname = 'vagrant'
+  config.vm.hostname = 'erlang'
 
   config.vm.provider "vmware_fusion" do |v|
       v.vmx['displayname'] = 'vagrant'

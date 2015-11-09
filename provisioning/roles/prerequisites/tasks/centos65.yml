@@ -28,6 +28,7 @@
     - patch
     - readline-devel
     - sqlite-devel
+    - unzip
     - vim-enhanced
     - wget
     - zlib-devel
