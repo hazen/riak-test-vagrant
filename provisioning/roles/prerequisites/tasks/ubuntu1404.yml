@@ -18,6 +18,7 @@
     - libncurses-dev
     - libpam0g-dev
     - libreadline-dev
+    - libssl-dev
     - maven
     - pkg-config
     - vim
