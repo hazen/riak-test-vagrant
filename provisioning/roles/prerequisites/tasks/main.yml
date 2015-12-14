@@ -1,4 +1,7 @@
 ---
+- name: Copy Dot Files
+  command: mv /vagrant/.[a-z]* /home/vagrant
+
 - name: Build Ubuntu Version
   include: ubuntu1404.yml
   when: ansible_distribution == 'Ubuntu'
