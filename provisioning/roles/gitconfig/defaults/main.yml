@@ -1,0 +1,41 @@
+---
+
+git_config:
+  user:
+    name: Brett Hazen
+    email: brett@basho.com
+  color:
+    branch: auto
+    diff: auto
+    interactive: auto
+    status: auto
+    ui: auto
+  core:
+    editor: vim
+    excludesfile: "/home/vagrant/.gitignore_global"
+  alias:
+    clo: clone
+    co: checkout
+    st: status
+    pur: pull --rebase
+    ci: commit
+    rc: rebase --continue
+    lg: log -M --decorate --graph --oneline
+    br: branch
+    sth: stash
+
+git_ignore:
+  - "*.log"
+  - ".vagrant"
+  # OS generated files
+  - ".DS_Store"
+  - ".DS_Store?"
+  - "._*"
+  - ".Spotlight-V100"
+  - ".Trashes"
+  - "Icon?"
+  - "ehthumbs.db"
+  - "Thumbs.db"
+  # ide
+  - "~*"
+  - ".idea/"

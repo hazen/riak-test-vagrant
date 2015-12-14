@@ -1,3 +1,4 @@
+# ansible-galaxy install kosssi.gitconfig
 DOT = dot
 
 all: dotfiles
@@ -5,7 +6,6 @@ all: dotfiles
 
 dotfiles:
 	test -d $(DOT) || mkdir $(DOT)
-	test -f $(HOME)/.gitconfig && cp $(HOME)/.gitconfig $(DOT)
 	test -d $(DOT)/.ssh || mkdir -p $(DOT)/.ssh
 	test -d $(HOME)/.ssh && cp -p $(HOME)/.ssh/id_rsa* $(DOT)/.ssh
 	test -f $(HOME)/.pypirc && cp $(HOME)/.pypirc $(DOT)

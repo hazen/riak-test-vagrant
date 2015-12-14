@@ -1,0 +1,21 @@
+---
+
+- name: be sure libselinux-python is installed
+  sudo: true
+  yum: >
+    name=libselinux-python
+    state=present
+  when: ansible_os_family == "RedHat"
+
+- name: be sure selinux is installed
+  sudo: true
+  apt: >
+    name=selinux
+    state=present
+  when: ansible_os_family == "Debian"
+
+- name: Configure .gitconfig file
+  template:
+    src=gitconfig.j2
+    dest=~/.gitconfig
+  when: git_config
