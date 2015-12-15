@@ -10,7 +10,7 @@
 - name: be sure selinux is installed
   sudo: true
   apt: >
-    name=selinux
+    name=python-selinux
     state=present
   when: ansible_os_family == "Debian"
 
