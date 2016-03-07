@@ -32,7 +32,7 @@ done
 
 ## Add riak_test goodies to the test environment
 BASHRC=${HOME}/.bashrc
-DEFAULT=R16B02-basho9
+DEFAULT=R16B02-basho10
 if [ -z "`grep CURRENT_OTP ${BASHRC}`" ]; then
     cat <<EOF >> ${BASHRC}
 # Location of Erlang OTP installations
