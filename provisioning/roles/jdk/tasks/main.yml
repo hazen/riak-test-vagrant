@@ -1,8 +1,4 @@
 ---
-- name: Build Ubuntu Version
-  include: ubuntu1404.yml
-  when: ansible_distribution == 'Ubuntu'
-
-- name: Build CentOS Version
-  include: centos65.yml
-  when: ansible_distribution == 'CentOS' and ansible_distribution_version >= '6.5'
+- name: Install JDK for Proper OS Version
+  include: "{{ ansible_os_family }}.yml"
+  when: ansible_os_family == 'Debian' or ansible_os_family == 'RedHat'
