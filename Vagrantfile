@@ -56,24 +56,26 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Host machine name
-  config.vm.hostname = 'erlang'
+  config.vm.hostname = 'timeseries'
 
-  config.vm.provider "vmware_fusion" do |v|
-      v.vmx['displayname'] = 'vagrant'
+  #config.vm.provider "vmware_fusion" do |v|
+  config.vm.provider "virtualbox" do |vb|
+      #v.vmx['displayname'] = 'timeseries'
+      vb.name = 'timeseries'
       # Display the VirtualBox GUI when booting the machine
       #vb.gui = true
 
       # Customize the numbers of cores on the VM:
-      v.vmx["numvcpus"] = "4"
-      #vb.cpus = "4"
+      #v.vmx["numvcpus"] = "4"
+      vb.cpus = "4"
 
       # Customize the amount of memory on the VM:
-      v.vmx["memsize"] = "4096"
-      #vb.memory = "4096"
+      #v.vmx["memsize"] = "4096"
+      vb.memory = "4096"
 
       # NAT
-      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+      #v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      #v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
 
 end
