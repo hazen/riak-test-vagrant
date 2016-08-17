@@ -1,8 +1,4 @@
 ---
-- name: Update the yum repository
-  sudo: true
-  shell: yum -y update
-
 - name: Set up Maven
   sudo: true
   get_url: url=http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo dest=/etc/yum.repos.d/epel-apache-maven.repo

@@ -1,7 +1,7 @@
 ---
 - name: Update the apt-get repository
   sudo: true
-  apt: update_cache=yes upgrade=dist
+  apt: update_cache=yes
 
 - name: install utilities and dependencies
   sudo: true
